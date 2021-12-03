@@ -1,6 +1,3 @@
-import pandas as pd
-
-
 def read_data(loc, integer=True):
     with open(loc) as f:
         data = f.readlines()

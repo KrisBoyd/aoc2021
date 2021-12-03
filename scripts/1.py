@@ -1,4 +1,3 @@
-import pandas as pd
 from scripts.utility import read_data
 
 
