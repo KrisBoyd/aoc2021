@@ -5,14 +5,12 @@ def add(x, y):
 
 
 def explode(s, idx):
-    # print(s[idx:])
     idx_end = s.index(']', idx)  # find sublist end
     c = s.index(',', idx)  # find comma index
 
     n1 = int(s[(idx+1):c])
     n2 = int(s[(c+1):s.index(']', c)])
 
-    # print(n1, n2)
     # find left
     for j in range(idx):
         if s[(idx-j)].isnumeric():
