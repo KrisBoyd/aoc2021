@@ -1,31 +1,6 @@
 from scripts.utility import read_data
 
 
-def find_neighbours(df, i, j):
-    len_i = len(df)
-    len_j = len(df[0])
-
-    nb = [[i-1, j-1], [i, j-1], [i+1, j-1],
-          [i-1, j],   [i, j]  , [i+1, j],
-          [i-1, j+1], [i, j+1], [i+1, j+1]]
-
-    # remove invalid
-    remove = []
-    if i == 0:
-        remove += [0, 3, 6]
-    elif (i + 1) == len_i:
-        remove += [2, 5, 8]
-    if j == 0:
-        remove += [0, 1, 2]
-    elif (j + 1) == len_j:
-        remove += [6, 7, 8]
-
-    if len(remove):
-        nb = [s for a, s in enumerate(nb) if a not in remove]
-
-    return nb
-
-
 def replace_(string, ring):
     if ring == '.':
         return string.replace('#', '.')
@@ -49,7 +24,6 @@ def puzzles(data):
             else:
                 ring = iea[-1]
         last_ring = ring
-        print(ring)
         # Add one ring of `.`
         image = [f'{ring}{s}{ring}' for s in image]
         image = [replace_(image[0], ring)] + image + [replace_(image[0], ring)]
